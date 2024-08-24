@@ -1,21 +1,29 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Orange\\source\\repos\\Task1\\",
+  "WorkspaceRootPath": "C:\\Users\\Orange\\Desktop\\Asp.net_WebApi_Core_Tasks\\19.08.2024\\Task1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|c:\\users\\orange\\source\\repos\\task1\\task1\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|c:\\users\\orange\\desktop\\asp.net_webapi_core_tasks\\19.08.2024\\task1\\task1\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|solutionrelative:task1\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|c:\\users\\orange\\source\\repos\\task1\\task1\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|c:\\users\\orange\\desktop\\asp.net_webapi_core_tasks\\19.08.2024\\task1\\task1\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|solutionrelative:task1\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|c:\\users\\orange\\desktop\\asp.net_webapi_core_tasks\\19.08.2024\\task1\\task1\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|solutionrelative:task1\\models\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|c:\\users\\orange\\desktop\\asp.net_webapi_core_tasks\\19.08.2024\\task1\\task1\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|solutionrelative:task1\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|c:\\users\\orange\\source\\repos\\task1\\task1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|c:\\users\\orange\\desktop\\asp.net_webapi_core_tasks\\19.08.2024\\task1\\task1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|solutionrelative:task1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|c:\\users\\orange\\source\\repos\\task1\\task1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|c:\\users\\orange\\desktop\\asp.net_webapi_core_tasks\\19.08.2024\\task1\\task1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{260031DA-4482-41A5-BBAD-3C0A5A1A58AB}|Task1\\Task1.csproj|solutionrelative:task1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -26,63 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Asp.net_WebApi_Core_Tasks\\19.08.2024\\Task1\\Task1\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Task1\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Asp.net_WebApi_Core_Tasks\\19.08.2024\\Task1\\Task1\\Models\\Product.cs",
+              "RelativeToolTip": "Task1\\Models\\Product.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T14:33:46.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MyDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Asp.net_WebApi_Core_Tasks\\19.08.2024\\Task1\\Task1\\Models\\MyDbContext.cs",
+              "RelativeDocumentMoniker": "Task1\\Models\\MyDbContext.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Asp.net_WebApi_Core_Tasks\\19.08.2024\\Task1\\Task1\\Models\\MyDbContext.cs",
+              "RelativeToolTip": "Task1\\Models\\MyDbContext.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAA7wCcAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T14:25:05.421Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "productsController.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\source\\repos\\Task1\\Task1\\Controllers\\productsController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Asp.net_WebApi_Core_Tasks\\19.08.2024\\Task1\\Task1\\Controllers\\productsController.cs",
               "RelativeDocumentMoniker": "Task1\\Controllers\\productsController.cs",
-              "ToolTip": "C:\\Users\\Orange\\source\\repos\\Task1\\Task1\\Controllers\\productsController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Asp.net_WebApi_Core_Tasks\\19.08.2024\\Task1\\Task1\\Controllers\\productsController.cs",
               "RelativeToolTip": "Task1\\Controllers\\productsController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAZAAAA",
+              "ViewState": "AQIAABgAAAAAAAAAAAAYwCcAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-19T14:07:21.608Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "categoriesController.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\source\\repos\\Task1\\Task1\\Controllers\\categoriesController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Asp.net_WebApi_Core_Tasks\\19.08.2024\\Task1\\Task1\\Controllers\\categoriesController.cs",
               "RelativeDocumentMoniker": "Task1\\Controllers\\categoriesController.cs",
-              "ToolTip": "C:\\Users\\Orange\\source\\repos\\Task1\\Task1\\Controllers\\categoriesController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Asp.net_WebApi_Core_Tasks\\19.08.2024\\Task1\\Task1\\Controllers\\categoriesController.cs",
               "RelativeToolTip": "Task1\\Controllers\\categoriesController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T13:50:31.25Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-19T13:50:31.25Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Orange\\source\\repos\\Task1\\Task1\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Asp.net_WebApi_Core_Tasks\\19.08.2024\\Task1\\Task1\\appsettings.json",
               "RelativeDocumentMoniker": "Task1\\appsettings.json",
-              "ToolTip": "C:\\Users\\Orange\\source\\repos\\Task1\\Task1\\appsettings.json",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Asp.net_WebApi_Core_Tasks\\19.08.2024\\Task1\\Task1\\appsettings.json",
               "RelativeToolTip": "Task1\\appsettings.json",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-19T13:49:21.853Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-19T13:49:21.853Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\source\\repos\\Task1\\Task1\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Asp.net_WebApi_Core_Tasks\\19.08.2024\\Task1\\Task1\\Program.cs",
               "RelativeDocumentMoniker": "Task1\\Program.cs",
-              "ToolTip": "C:\\Users\\Orange\\source\\repos\\Task1\\Task1\\Program.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Asp.net_WebApi_Core_Tasks\\19.08.2024\\Task1\\Task1\\Program.cs",
               "RelativeToolTip": "Task1\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T13:48:55.154Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "WhenOpened": "2024-08-19T13:48:55.154Z"
             }
           ]
         }

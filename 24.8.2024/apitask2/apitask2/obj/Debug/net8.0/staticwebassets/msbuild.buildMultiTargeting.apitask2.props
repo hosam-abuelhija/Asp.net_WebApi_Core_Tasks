@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\apitask2.props" />
+</Project>

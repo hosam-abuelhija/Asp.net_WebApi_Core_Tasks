@@ -27,13 +27,19 @@ public partial class MyDbContext : DbContext
     {
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
-            entity.Property(e => e.CategoryImage)
-                .HasMaxLength(5000)
-                .IsUnicode(false);
-            entity.Property(e => e.CategoryName)
-                .HasMaxLength(255)
-                .IsUnicode(false);
+            //entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+            //entity.Property(e => e.CategoryImage)
+            //    .HasMaxLength(5000)
+            //    .IsUnicode(false);
+            //entity.Property(e => e.CategoryName)
+            //    .HasMaxLength(255)
+            //    .IsUnicode(false);
+            modelBuilder.Entity<Product>()
+           .HasOne(p => p.Category)
+           .WithMany(c => c.Products)
+           .HasForeignKey(p => p.CategoryId);
+
+            base.OnModelCreating(modelBuilder);
         });
 
         modelBuilder.Entity<Product>(entity =>
