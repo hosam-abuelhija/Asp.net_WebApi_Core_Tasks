@@ -22,6 +22,13 @@ namespace apitask2.Controllers
             return Ok(products);
         }
 
+        [HttpGet("GetAllProductsByCatId/{CID}")]
+        public IActionResult GetAllProductsByCatId(int CID)
+        {
+            var products = _dbContext.Products.Where(p => p.CategoryId == CID).ToList();
+            return Ok(products);
+        }
+
 
         [HttpGet("{id}")]
         public IActionResult GetProductById(int id)

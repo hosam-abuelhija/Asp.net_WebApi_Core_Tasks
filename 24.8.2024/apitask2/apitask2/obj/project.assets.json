@@ -8276,11 +8276,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Orange\\source\\repos\\apitask2\\apitask2\\apitask2.csproj",
+      "projectUniqueName": "C:\\Users\\Orange\\Desktop\\WEB API\\Asp.net_WebApi_Core_Tasks\\24.8.2024\\apitask2\\apitask2\\apitask2.csproj",
       "projectName": "apitask2",
-      "projectPath": "C:\\Users\\Orange\\source\\repos\\apitask2\\apitask2\\apitask2.csproj",
+      "projectPath": "C:\\Users\\Orange\\Desktop\\WEB API\\Asp.net_WebApi_Core_Tasks\\24.8.2024\\apitask2\\apitask2\\apitask2.csproj",
       "packagesPath": "C:\\Users\\Orange\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Orange\\source\\repos\\apitask2\\apitask2\\obj\\",
+      "outputPath": "C:\\Users\\Orange\\Desktop\\WEB API\\Asp.net_WebApi_Core_Tasks\\24.8.2024\\apitask2\\apitask2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
