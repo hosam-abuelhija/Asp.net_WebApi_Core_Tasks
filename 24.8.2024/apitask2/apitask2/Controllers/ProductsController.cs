@@ -1,4 +1,5 @@
-﻿using apitask2.Models;
+﻿using apitask2.DTOs;
+using apitask2.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +20,83 @@ namespace apitask2.Controllers
         public IActionResult GetAllProducts()
         {
             var products = _dbContext.Products.ToList();
+            return Ok(products);
+        }
+
+        [HttpPost]
+        public IActionResult addProduct([FromForm] productrequestDTO add)
+        {
+            var catId = _dbContext.Categories.Find(add.CategoryId);
+            if (catId != null)
+            {
+                var uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "Images");
+                if (!Directory.Exists(uploadFolder))
+                {
+                    Directory.CreateDirectory(uploadFolder);
+                }
+                var imgFile = Path.Combine(uploadFolder, add.ProductImage.FileName);
+                using (var stream = new FileStream(imgFile, FileMode.Create))
+                {
+                    add.ProductImage.CopyToAsync(stream);
+                }
+                var newproduct = new Product()
+                {
+                    ProductName = add.ProductName,
+                    Price = add.Price,
+                    ProductImage = add.ProductImage.FileName,
+                    CategoryId = add.CategoryId,
+                    Description = add.Description,
+                };
+                _dbContext.Products.Add(newproduct);
+                _dbContext.SaveChanges();
+                return Ok(newproduct);
+            }
+            return BadRequest();
+        }
+
+
+        [HttpPut("{id}")]
+        public IActionResult editProduct(int id, [FromForm] productrequestDTO edit)
+        {
+            var product1 = _dbContext.Products.Find(id);
+            if (product1 == null)
+            {
+                return BadRequest();
+            }
+            var catId = _dbContext.Categories.Find(edit.CategoryId);
+            if (catId != null)
+            {
+                var uploadFolder = Path.Combine(Directory.GetCurrentDirectory(), "Images");
+                if (!Directory.Exists(uploadFolder))
+                {
+                    Directory.CreateDirectory(uploadFolder);
+                }
+                var imgFile = Path.Combine(uploadFolder, edit.ProductImage.FileName);
+                using (var stream = new FileStream(imgFile, FileMode.Create))
+                {
+                    edit.ProductImage.CopyToAsync(stream);
+                }
+                product1.ProductName = edit.ProductName;
+                product1.Price = edit.Price;
+                product1.ProductImage = edit.ProductImage.FileName;
+                product1.CategoryId = edit.CategoryId;
+                product1.Description = edit.Description;
+                
+                _dbContext.Products.Update(product1);
+                _dbContext.SaveChanges();
+                return Ok(product1);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
+
+        [HttpGet("GetAllProductsDesc")]
+        public IActionResult GetAllProductsDesc()
+        {
+            var products = _dbContext.Products.OrderByDescending(p => Convert.ToDecimal(p.Price)).ToList();
             return Ok(products);
         }
 

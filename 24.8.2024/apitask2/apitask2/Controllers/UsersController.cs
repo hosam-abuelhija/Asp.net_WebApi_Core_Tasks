@@ -1,4 +1,5 @@
-﻿using apitask2.Models;
+﻿using apitask2.DTOs;
+using apitask2.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -73,5 +74,42 @@ namespace apitask2.Controllers
             _dbContext.SaveChanges();
             return Ok("the user has been deleted");
         }
+
+
+
+        [HttpPost]
+        public IActionResult AddUser([FromForm] userRequestDTO add)
+        {
+            
+            var newuser = new User()
+            {
+                Email = add.Email,
+                Username = add.Username,
+                Password = add.Password,
+            };
+            _dbContext.Users.Add(newuser);
+            _dbContext.SaveChanges();
+            return Ok(newuser);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult editUser(int id, [FromForm] userRequestDTO edit)
+        {
+            var user = _dbContext.Users.Find(id);
+            if (user == null)
+            {
+                return BadRequest();
+            }
+            
+            user.Email = edit.Email;
+            user.Username = edit.Username;
+            user.Password = edit.Password;
+
+            _dbContext.Users.Update(user);
+            _dbContext.SaveChanges();
+            return Ok(user);
+        }
+
+
     }
 }
