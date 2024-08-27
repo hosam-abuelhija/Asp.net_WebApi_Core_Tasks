@@ -65,8 +65,8 @@ namespace apitask2.Controllers
             {
                 edit.CategoryImage.CopyToAsync(stream);
             }
-            category1.CategoryImage = category1.CategoryImage;
-                category1.CategoryName = category1.CategoryName;
+            category1.CategoryImage = edit.CategoryImage.FileName;
+                category1.CategoryName = edit.CategoryName;
 
                 _dbContext.Categories.Update(category1);
                 _dbContext.SaveChanges();

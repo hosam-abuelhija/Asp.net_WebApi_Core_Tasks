@@ -24,7 +24,6 @@ options.AddPolicy("Development", builder =>
 );
 
 var app = builder.Build();
-app.UseCors("Development");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -35,6 +34,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors("Development");
 
 app.MapControllers();
 

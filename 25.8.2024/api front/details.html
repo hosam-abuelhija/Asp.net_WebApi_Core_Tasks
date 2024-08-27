@@ -56,22 +56,28 @@
     <div id="productCard"></div>
 
     <script>
-       let PID = localStorage.getItem("productID")
-      let  url = `https://localhost:44342/api/Products/${PID}`;
+      
       async function getProduct() {
+        let PID = localStorage.getItem("productID");
+      let url = `https://localhost:44342/api/Products/${PID}`;
         let response = await fetch(url);
         let data = await response.json();
         console.log(data);
         let productCard = document.getElementById("productCard");
-          productCard.innerHTML += `<div class="card" style="width: 18rem; margin: 10px;">
+        productCard.innerHTML += `<div class="card" style="width: 18rem; margin: 10px;">
                   <div class="card-body">
                     <h5 class="card-title">${data.productName}</h5>
                     <p>${data.price} JDs</p>
+                    <button onclick="edit(${data.productId})">Edit</button>
                   </div>
                 </div>`;
       }
-
       getProduct();
+      
+      function edit(id) {
+        localStorage.setItem("productID", id);
+        window.location.href = "edit.html";
+      }
     </script>
   </body>
 </html>

@@ -50,9 +50,9 @@ namespace apitask2.Controllers
                 _dbContext.Products.Add(newproduct);
                 _dbContext.SaveChanges();
                 return Ok(newproduct);
-            }
-            return BadRequest();
         }
+            return BadRequest();
+    }
 
 
         [HttpPut("{id}")]

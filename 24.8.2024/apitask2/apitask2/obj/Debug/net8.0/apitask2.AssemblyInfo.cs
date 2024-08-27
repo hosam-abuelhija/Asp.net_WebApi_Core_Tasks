@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("apitask2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b1ee62deb6621f280df22f5febeb57ed0662c5f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa95eaf083ef53034931843575d360ff3bc7ecd8")]
 [assembly: System.Reflection.AssemblyProductAttribute("apitask2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("apitask2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

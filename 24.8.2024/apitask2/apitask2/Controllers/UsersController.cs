@@ -2,6 +2,7 @@
 using apitask2.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace apitask2.Controllers
 {
@@ -15,7 +16,7 @@ namespace apitask2.Controllers
             _dbContext = db;
         }
 
-       
+
 
         [Route("api/Users/GetAllUsers")]
         [HttpGet]
@@ -80,7 +81,7 @@ namespace apitask2.Controllers
         [HttpPost]
         public IActionResult AddUser([FromForm] userRequestDTO add)
         {
-            
+
             var newuser = new User()
             {
                 Email = add.Email,
@@ -100,7 +101,7 @@ namespace apitask2.Controllers
             {
                 return BadRequest();
             }
-            
+
             user.Email = edit.Email;
             user.Username = edit.Username;
             user.Password = edit.Password;
@@ -110,6 +111,26 @@ namespace apitask2.Controllers
             return Ok(user);
         }
 
+
+        [HttpGet]
+        public IActionResult calculate(string calculation)
+        {
+             string[] opperation = calculation.Split(' ');
+            var num1 = Convert.ToInt32(opperation[0]);
+            var x = opperation[1];
+            var num3 = Convert.ToInt32(opperation[2]);
+            var result = 0;
+            switch (x)
+            {
+                case ("+"):
+                    result = num1 + num3;
+                    break;
+                case ("-"):
+                    result = num1 - num3;
+                    break;
+            }
+            return Ok(result);
+        }
 
     }
 }
