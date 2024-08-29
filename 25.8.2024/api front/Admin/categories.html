@@ -82,7 +82,7 @@
           <h1>Categories</h1>
           <br />
           <a href="creatCategory.html"
-            ><button type="submit">Creat Category</button></a
+            ><button type="submit" >Creat Category</button></a
           >
           <table class="table">
             <tr>
@@ -92,6 +92,7 @@
             </tr>
           </table>
         </div>
+        
       </div>
       <!-- Content End -->
     </div>
@@ -114,7 +115,7 @@
                        ${category.categoryName}
                     </th>
                     <th>
-                       <img src="~/img/${category.categoryImage}"/>
+                       <img src="img/${category.categoryImage}" style="width: 100px; height: 100px;" />
                     </th>
                     <th>
                        <a onclick="saveButtonValue(${category.categoryId})" >Edit</a>

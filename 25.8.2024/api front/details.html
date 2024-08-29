@@ -56,10 +56,9 @@
     <div id="productCard"></div>
 
     <script>
-      
       async function getProduct() {
         let PID = localStorage.getItem("productID");
-      let url = `https://localhost:44342/api/Products/${PID}`;
+        let url = `https://localhost:44342/api/Products/${PID}`;
         let response = await fetch(url);
         let data = await response.json();
         console.log(data);
@@ -68,15 +67,33 @@
                   <div class="card-body">
                     <h5 class="card-title">${data.productName}</h5>
                     <p>${data.price} JDs</p>
+                    <input type="number" id="quantity" name="quantity"/>
                     <button onclick="edit(${data.productId})">Edit</button>
+                    <button onclick="AddToCart(${data.productId})">Add To Cart</button>
                   </div>
                 </div>`;
       }
       getProduct();
-      
+
       function edit(id) {
         localStorage.setItem("productID", id);
         window.location.href = "edit.html";
+      }
+
+      async function AddToCart(id) {
+        var quantity = document.getElementById("quantity").value;
+        let url = "https://localhost:44342/api/CartItems";
+        var data = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            cartId: 1,
+            productId: id,
+            quantity: quantity,
+          })
+        });
+        alert("the item added to the cart successfuly");
+        window.location.href = "Cart.html";
       }
     </script>
   </body>
