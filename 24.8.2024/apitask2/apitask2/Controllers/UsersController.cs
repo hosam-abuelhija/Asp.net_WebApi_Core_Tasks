@@ -78,20 +78,36 @@ namespace apitask2.Controllers
 
 
 
-        [HttpPost]
+        [HttpPost("Regester")]
         public IActionResult AddUser([FromForm] userRequestDTO add)
         {
-
+            byte[] hash, salt;
+            PasswordHash.CreatePasswordHash(add.Password, out hash, out salt);
             var newuser = new User()
             {
                 Email = add.Email,
                 Username = add.Username,
                 Password = add.Password,
+                PasswordSalt = salt,
+                PasswordHash = hash
+
             };
             _dbContext.Users.Add(newuser);
             _dbContext.SaveChanges();
             return Ok(newuser);
         }
+
+        [HttpPost("Login")]
+        public IActionResult Login([FromForm] userRequestDTO user)
+        {
+            var potato = _dbContext.Users.FirstOrDefault(u => u.Email == user.Email);
+            if (potato == null || !PasswordHash.VerifyPasswordHash(user.Password, potato.PasswordHash, potato.PasswordSalt)) {
+                return Unauthorized("bad potato!!!");
+            }
+            return Ok("good potato!!");
+
+        }
+
 
         [HttpPut("{id}")]
         public IActionResult editUser(int id, [FromForm] userRequestDTO edit)

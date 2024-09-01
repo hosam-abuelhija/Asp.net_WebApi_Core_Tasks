@@ -142,5 +142,14 @@ namespace apitask2.Controllers
 
         }
 
+
+        [HttpGet]
+        [Route  ("/potato")]
+        public IActionResult getfive()
+        {
+          var  pros = _dbContext.Products.OrderBy(p => p.ProductName).ToList().TakeLast(5);
+            return Ok(pros);
+        }
+
     }
 }

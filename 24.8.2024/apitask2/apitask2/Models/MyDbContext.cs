@@ -27,9 +27,11 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
 
+    public virtual DbSet<UserRole> UserRoles { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-SF9S359;Database=wepapicore;Trusted_Connection=True;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server= DESKTOP-SF9S359;Database= wepapicore;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -128,6 +130,19 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.Username)
                 .HasMaxLength(225)
                 .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<UserRole>(entity =>
+        {
+            entity.HasKey(e => new { e.UserId, e.Role });
+
+            entity.Property(e => e.UserId).HasColumnName("UserID");
+            entity.Property(e => e.Role).HasMaxLength(50);
+
+            entity.HasOne(d => d.User).WithMany(p => p.UserRoles)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_UserRole_User");
         });
 
         OnModelCreatingPartial(modelBuilder);
