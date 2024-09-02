@@ -98,10 +98,11 @@ namespace apitask2.Controllers
         }
 
         [HttpPost("Login")]
-        public IActionResult Login([FromForm] userRequestDTO user)
+        public IActionResult Login([FromForm] LoginDTO user)
         {
             var potato = _dbContext.Users.FirstOrDefault(u => u.Email == user.Email);
-            if (potato == null || !PasswordHash.VerifyPasswordHash(user.Password, potato.PasswordHash, potato.PasswordSalt)) {
+            if (potato == null || !PasswordHash.VerifyPasswordHash(user.Password, potato.PasswordHash, potato.PasswordSalt))
+            {
                 return Unauthorized("bad potato!!!");
             }
             return Ok("good potato!!");
@@ -184,9 +185,17 @@ namespace apitask2.Controllers
                 }
             }
             return Ok("False");
-            
+
         }
 
+        [HttpGet("get/{username}")]
+        public IActionResult getuserbyname(string username)
+        {
+
+           var user = _dbContext.Users.FirstOrDefault(u => u.Username == username);
+            return Ok(user);
+
+        }
 
 
     }
