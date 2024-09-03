@@ -2,6 +2,9 @@
 using apitask2.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
+using System.Data;
 using System.Diagnostics;
 
 namespace apitask2.Controllers
@@ -11,9 +14,11 @@ namespace apitask2.Controllers
     public class UsersController : ControllerBase
     {
         private MyDbContext _dbContext;
-        public UsersController(MyDbContext db)
+        private TokenGenerator _tokenGenerator;
+        public UsersController(MyDbContext db, TokenGenerator tokenGenerator)
         {
             _dbContext = db;
+            _tokenGenerator = tokenGenerator;
         }
 
 
@@ -100,12 +105,15 @@ namespace apitask2.Controllers
         [HttpPost("Login")]
         public IActionResult Login([FromForm] LoginDTO user)
         {
-            var potato = _dbContext.Users.FirstOrDefault(u => u.Email == user.Email);
-            if (potato == null || !PasswordHash.VerifyPasswordHash(user.Password, potato.PasswordHash, potato.PasswordSalt))
+            var dbuser = _dbContext.Users.FirstOrDefault(u => u.Email == user.Email);
+            if (dbuser == null || !PasswordHash.VerifyPasswordHash(user.Password, dbuser.PasswordHash, dbuser.PasswordSalt))
             {
-                return Unauthorized("bad potato!!!");
+                return Unauthorized("Login Unauthorized!");
             }
-            return Ok("good potato!!");
+            var roles = _dbContext.UserRoles.Where(u => u.User.UserId == dbuser.UserId).Select(r =>  r.Role).ToList();
+            var token = _tokenGenerator.GenerateToken(dbuser.Email, roles);
+
+            return Ok(new { Token = token });
 
         }
 
@@ -129,74 +137,16 @@ namespace apitask2.Controllers
         }
 
 
-        [HttpGet]
-        public IActionResult calculate(string calculation)
-        {
-            string[] opperation = calculation.Split(' ');
-            var num1 = Convert.ToInt32(opperation[0]);
-            var x = opperation[1];
-            var num3 = Convert.ToInt32(opperation[2]);
-            var result = 0;
-            switch (x)
-            {
-                case ("+"):
-                    result = num1 + num3;
-                    break;
-                case ("-"):
-                    result = num1 - num3;
-                    break;
-            }
-            return Ok(result);
-        }
 
-        [HttpGet("{num1} / {num2}")]
-        public IActionResult calculation(int num1, int num2)
-        {
-            if (num1 == 30)
-            {
-                return Ok("True");
-            }
-            else if (num2 == 30)
-            {
-                return Ok("True");
-            }
-            else if (num1 + num2 == 30)
-            {
-                return Ok("True");
-            }
-            else
-            {
-                return Ok("False");
-            }
-        }
-
-        [HttpGet("{num1}")]
-        public IActionResult calculation1(int num1)
-        {
-            if (num1 > 0)
-            {
-                if (num1 % 3 == 0 || num1 % 7 == 0)
-                {
-                    return Ok("True");
-                }
-                else
-                {
-                    return Ok("False");
-                }
-            }
-            return Ok("False");
-
-        }
 
         [HttpGet("get/{username}")]
         public IActionResult getuserbyname(string username)
         {
 
-           var user = _dbContext.Users.FirstOrDefault(u => u.Username == username);
+            var user = _dbContext.Users.FirstOrDefault(u => u.Username == username);
             return Ok(user);
-
         }
 
-
     }
+
 }

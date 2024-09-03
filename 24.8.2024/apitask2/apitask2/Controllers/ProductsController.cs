@@ -1,5 +1,6 @@
 ﻿using apitask2.DTOs;
 using apitask2.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,8 @@ namespace apitask2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    
+
     public class ProductsController : ControllerBase
     {
         private MyDbContext _dbContext;
@@ -15,7 +18,7 @@ namespace apitask2.Controllers
             _dbContext = db;
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult GetAllProducts()
         {
@@ -100,6 +103,8 @@ namespace apitask2.Controllers
             return Ok(products);
         }
 
+
+        [Authorize(Roles = "Admin")]
         [HttpGet("GetAllProductsByCatId/{CID}")]
         public IActionResult GetAllProductsByCatId(int CID)
         {

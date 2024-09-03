@@ -1,5 +1,6 @@
 ﻿using apitask2.DTOs;
 using apitask2.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +16,7 @@ namespace apitask2.Controllers
             _dbContext = db;
         }
 
-
+        [Authorize(Roles = "Client")]
         [Route("api/categories/GetAllCategories")]
         [HttpGet]
         public IActionResult GetAllCategories()

@@ -45,7 +45,12 @@
               <a class="nav-link" href="Orders.html">Orders</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" onclick="clearlocal()" href="products.html">Products</a>
+              <a class="nav-link" onclick="clearlocal()" href="products.html"
+                >Products</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="logout()" href="">Logout</a>
             </li>
           </ul>
         </div>
@@ -66,17 +71,26 @@
       }
 
       async function getAllProducts() {
-        let response = await fetch(url);
+        let token = localStorage.getItem("jwtToken");
+        let response = await fetch(url, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+        
+        if (!response.ok) {
+          window.location.href = "/login.html"
+        }
         let data = await response.json();
         console.log(data);
         let productCard = document.getElementById("productCard");
         data.forEach((product) => {
           productCard.innerHTML += `<div class="card" style="width: 18rem; margin: 10px;">
-                  <div class="card-body">
-                    <h5 class="card-title">${product.productName}</h5>
-                    <button href="details.html" onclick="saveButtonValue(${product.productId})">details</button>
-                  </div>
-                </div>`;
+                    <div class="card-body">
+                      <h5 class="card-title">${product.productName}</h5>
+                      <button href="details.html" onclick="saveButtonValue(${product.productId})">details</button>
+                    </div>
+                  </div>`;
         });
       }
 
@@ -85,10 +99,14 @@
         window.location.href = "details.html";
       }
 
-      function clearlocal(){
+      function clearlocal() {
         localStorage.setItem("categoryID", "null");
         window.location.href = "products.html";
+      }
 
+      function logout() {
+        localStorage.removeItem("jwtToken");
+        window.location.href = "login.html";
       }
 
       getAllProducts();

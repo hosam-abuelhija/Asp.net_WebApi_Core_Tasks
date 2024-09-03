@@ -101,10 +101,11 @@
           method: "POST",
           body: formData,
         });
-        // var data = await response.json();
+         var data = await response.json();
         let message = document.getElementById("message");
         if(response.status == 200){
             message.innerHTML = "<p>Login succeeded</p>";
+            localStorage.setItem('jwtToken', data.token);
         }else{
             message.innerHTML = "<p>Login failed</p>";
         }
